@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VidJam</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <header>
+        <h1>VidJam <span id="version"></span></h1>
+        <label class="switch" title="Applies the next time Meet opens the camera">
+            <input type="checkbox" id="enabled">
+            <span class="slider"></span>
+        </label>
+    </header>
+    <p id="hint" class="hint"></p>
+
+    <dl id="rows">
+        <dt>Meet tab</dt>       <dd id="tab"></dd>
+        <dt>Camera streams</dt> <dd id="pipelines"></dd>
+        <dt>Hand tracker</dt>   <dd id="tracker"></dd>
+        <dt>Tracking rate</dt>  <dd id="fps"></dd>
+        <dt>Drawing</dt>        <dd id="draw"></dd>
+    </dl>
+
+    <div class="buttons">
+        <button id="toggleDraw" type="button">Toggle drawing</button>
+        <button id="clear" type="button">Clear drawing</button>
+    </div>
+
+    <h2>Recent events</h2>
+    <ul id="events"></ul>
+
+    <script src="popup.js"></script>
+</body>
+</html>

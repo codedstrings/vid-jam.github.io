@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "VidJam for Meet",
+  "version": "0.2.0",
+  "description": "Draw on your Google Meet video with hand gestures.",
+  "permissions": ["storage"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "action": {
+    "default_title": "VidJam",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["vidjam.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["tracker.html", "tracker.js", "hands/*"],
+      "matches": ["https://meet.google.com/*"]
+    }
+  ]
+}
